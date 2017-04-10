@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBF9BC12-1061-4B9E-A760-C33A7613C8DF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Warsim.Events</RootNamespace>
+    <AssemblyName>Warsim.Events</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventBuilder.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="EventProcessor.cs" />
+    <Compile Include="Messages\Chat\ChannelInviteMessage.cs" />
+    <Compile Include="Messages\Chat\ChannelStateMessage.cs" />
+    <Compile Include="Messages\Chat\CloseChannelMessage.cs" />
+    <Compile Include="Messages\Chat\ConversationInviteMessage.cs" />
+    <Compile Include="Messages\Game\EndGameMessage.cs" />
+    <Compile Include="Messages\Game\GameInviteMessage.cs" />
+    <Compile Include="Messages\Game\GameModeSwitchMessage.cs" />
+    <Compile Include="Messages\Game\GamePrivacyChangeMessage.cs" />
+    <Compile Include="Messages\Game\PauseGameMessage.cs" />
+    <Compile Include="Messages\Game\UpdatedGameStateMessage.cs" />
+    <Compile Include="Messages\Game\LocalGameStateMessage.cs" />
+    <Compile Include="Messages\User\UserConnectedMessage.cs" />
+    <Compile Include="Messages\User\UserDisconnectedMessage.cs" />
+    <Compile Include="Messages\Chat\UserJoinedChannelMessage.cs" />
+    <Compile Include="Messages\Chat\UserLeftChannelMessage.cs" />
+    <Compile Include="Messages\Game\GameStateMessage.cs" />
+    <Compile Include="Messages\Game\NewGameOwnerMessage.cs" />
+    <Compile Include="Messages\Game\PlayerConnectedMessage.cs" />
+    <Compile Include="Messages\Game\PlayerDisconnectedMessage.cs" />
+    <Compile Include="Messages\IEventMessage.cs" />
+    <Compile Include="IEventHandler.cs" />
+    <Compile Include="Messages\Chat\ChatMessageMessage.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Messages\User\FriendRequestMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Warsim.Core\Warsim.Core.csproj">
+      <Project>{70527191-D36C-47A2-A996-38AF8915E4EF}</Project>
+      <Name>Warsim.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
